@@ -4,6 +4,7 @@ plugins {
 
 group 'gg.luau'
 version '1.0'
+mainClassName = 'gg.luau.twilight.startup.Main'
 
 repositories {
     mavenCentral()
@@ -15,3 +16,5 @@ dependencies {
     }
     implementation 'ch.qos.logback:logback-classic:1.2.10'
 }
+
+compileJava.options.encoding = "UTF-8"
