@@ -1,0 +1,17 @@
+plugins {
+    id 'application'
+}
+
+group 'gg.luau'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('net.dv8tion:JDA:5.0.0-alpha.5') {
+        exclude module: 'opus-java'
+    }
+    implementation 'ch.qos.logback:logback-classic:1.2.10'
+}
