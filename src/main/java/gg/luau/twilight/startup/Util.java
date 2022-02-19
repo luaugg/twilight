@@ -29,9 +29,9 @@ public class Util {
     private static final long BLOSSOMS_PLAYER = 849107689685647360L;
     */
 
-    private static final long DRAGONS_MANAGER = 777543173106434098L;
-    private static final long DRAGONS_TRYOUT = 777543173106434098L;
-    private static final long DRAGONS_PLAYER = 777543173106434098L;
+    public static final long DRAGONS_MANAGER = 777543173106434098L;
+    public static final long DRAGONS_TRYOUT = 891487855334010901L; // TODO: change this to 746782373051629679
+    public static final long DRAGONS_PLAYER = 746782373051629679L;
     private static final Logger LOGGER = LoggerFactory.getLogger(Util.class);
 
     private Util() { }
