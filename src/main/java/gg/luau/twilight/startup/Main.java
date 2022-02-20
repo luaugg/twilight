@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import javax.security.auth.login.LoginException;
 import java.awt.*;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main extends ListenerAdapter {
@@ -82,7 +83,7 @@ public class Main extends ListenerAdapter {
 
                     return;
                 }
-                // Confirming that only managers can use the Cancel button.
+
                 /*if (!Util.isDragonsManager(event.getMember())) {
                     event.reply("You cannot confirm this poll as you not a Dragons manager.")
                             .setEphemeral(true)
@@ -168,21 +169,16 @@ public class Main extends ListenerAdapter {
             if (originalDescription.startsWith("No")) {
                 embedBuilder.setDescription(String.format("%s: %s", member.getAsMention(), days));
             } else {
-                final var index = originalDescription.indexOf(member.getAsMention());
+                // It is bad to compile patterns at runtime, but I don't want to do substring hell / a long custom
+                // solution for this. Also, the performance penalty is negligible at this scale.
 
-                if (index == -1) {
-                    LOGGER.info("No desc yet.");
-                    embedBuilder.appendDescription("\n")
-                            .appendDescription(member.getAsMention())
-                            .appendDescription(": ")
-                            .appendDescription(days)
-                            .build();
-                } else {
-                    final var firstSubstring = originalDescription.substring(0, index);
-                    final var secondSubstring = originalDescription.substring(index + member.getAsMention().length() + days.length() + 2);
-                    final var testString = firstSubstring + member.getAsMention() + ": " + days + secondSubstring;
-                    embedBuilder.setDescription(testString);
-                }
+                final var pattern = Pattern.compile("(\n?)(<@!?" + member.getId() + ">: )(.+)");
+                final var matcher = pattern.matcher(originalDescription);
+
+                if (!matcher.find())
+                    embedBuilder.appendDescription("\n" + member.getAsMention() + ": " + days);
+                else
+                    embedBuilder.setDescription(matcher.replaceAll("$1$2" + days));
             }
 
             event.editMessageEmbeds(embedBuilder.build()).queue();
