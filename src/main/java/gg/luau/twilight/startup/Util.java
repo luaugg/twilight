@@ -9,29 +9,23 @@ public class Util {
     private static final long NAPPERS_MANAGER = 777543061441478686L;
     private static final long NAPPERS_TRYOUT = 777543061441478686L;
     private static final long NAPPERS_PLAYER = 777543061441478686L;
-    */
 
-    /*
     private static final long PANDAS_MANAGER = 777543126528032798L;
     private static final long PANDAS_TRYOUT = 777543126528032798L;
     private static final long PANDAS_PLAYER = 777543126528032798L;
-    */
 
-    /*
     private static final long CORGIS_MANAGER = 804420437702213693L;
     private static final long CORGIS_TRYOUT = 804420437702213693L;
     private static final long CORGIS_PLAYER = 804420437702213693L;
-    */
 
-    /*
     private static final long BLOSSOMS_MANAGER = 849107689685647360L;
     private static final long BLOSSOMS_TRYOUT = 849107689685647360L;
     private static final long BLOSSOMS_PLAYER = 849107689685647360L;
     */
 
     public static final long DRAGONS_MANAGER = 777543173106434098L;
-    public static final long DRAGONS_TRYOUT = 891487855334010901L; // TODO: change this to 746782373051629679
-    public static final long DRAGONS_PLAYER = 746782373051629679L;
+    public static final long DRAGONS_TRYOUT = 746782373051629679L;
+    public static final long DRAGONS_PLAYER = 746782108529459330L;
     private static final Logger LOGGER = LoggerFactory.getLogger(Util.class);
 
     private Util() { }
