@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group 'gg.luau'
@@ -14,6 +15,7 @@ dependencies {
     implementation('net.dv8tion:JDA:5.0.0-alpha.5') {
         exclude module: 'opus-java'
     }
+
     implementation 'ch.qos.logback:logback-classic:1.2.10'
 }
 
